@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import "./App.css";
+
+import { Route, Router, Routes } from "react-router-dom";
+import CarLoans from "./Components/CarLoans/CarLoans";
+import EmiCalculator from "./Components/CarLoans/EmiCalculator";
+import NewCarEligibility from "../src/Components/CarLoans/NewCarEligibility";
+import EligibiityCheckForm from "./Components/CarLoans/EligibiityCheckForm";
+import ApplyNowPage from "./Components/CarLoans/ApplyNowPage";
+import ApplicationProcess from "./Components/CarLoans/ApplicationProcess";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route exact path="/NewCarLoanHome" element={<CarLoans />} />
+        <Route exact path="/emi" element={<EmiCalculator />} />
+        <Route eact path="/CheckEligibility" element={<NewCarEligibility />} />
+        <Route
+          exact
+          path="/EligibiityCheckForm"
+          element={<EligibiityCheckForm />}
+        />
+
+        <Route path="/applyNowPage" element={<ApplyNowPage />} />
+        <Route path="/ApplicationProcess" element={<ApplicationProcess />} />
+      </Routes>
+    </>
   );
 }
 
